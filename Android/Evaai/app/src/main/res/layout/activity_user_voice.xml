@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="fill_horizontal"
+        android:background="#eee">
+
+        <Button
+            style="@style/backButton" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="32sp"
+            android:layout_height="32sp"
+            android:layout_margin="4sp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_margin="4sp"
+            android:layout_weight="1"
+            android:text="@string/languageAndVoice"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/helpButton"
+            android:layout_width="32sp"
+            android:layout_height="32sp"
+            android:layout_margin="4sp"
+            android:background="@drawable/help"
+            android:onClick="help"
+            android:text="" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#ddd">
+    </View>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/voiceType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voiceType"
+            android:padding="8dp"/>
+
+        <Spinner
+            android:id="@+id/voiceTypeSpin"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id ="@+id/voiceLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/voiceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voice"
+            android:padding="8dp"/>
+
+        <Spinner
+            android:id="@+id/voiceSpin"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id ="@+id/voiceModLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:padding="8dp"
+            android:id="@+id/voiceLabelMod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voiceMod" />
+
+        <Spinner
+            android:id="@+id/voiceModSpin"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id ="@+id/languageLayout"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:padding="8dp"
+            android:id="@+id/languageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/language" />
+
+        <Spinner
+            android:id="@+id/languageSpin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id ="@+id/speechLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:padding="8dp"
+            android:id="@+id/speechRateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/speechRate" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/speechSeekBar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/speechResetButton"
+                android:max="100" />
+
+            <Button
+                android:padding="8dp"
+                android:id="@+id/speechResetButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/button"
+                android:onClick="resetSpeech"
+                android:layout_alignParentRight="true"
+                android:text="Reset"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id ="@+id/pitchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:padding="8dp"
+            android:id="@+id/pitchLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/pitch" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/pitchSeekBar"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/pitchResetButton"
+                android:max="100" />
+
+            <Button
+                android:padding="8dp"
+                android:id="@+id/pitchResetButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/button"
+                android:onClick="resetPitch"
+                android:text="Reset"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:padding="8dp"
+            android:id="@+id/testText"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:text="@string/thisIsATest" />
+
+        <Button
+            android:padding="8dp"
+            android:id="@+id/testButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/button"
+            android:onClick="test"
+            android:text="@string/test"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:padding="8dp"
+        android:id="@+id/filler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:background="@drawable/ok_button"
+        android:onClick="save"
+        android:text="@string/save"
+        android:textColor="@color/white" />
+
+</LinearLayout>

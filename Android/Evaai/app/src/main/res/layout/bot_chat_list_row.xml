@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="60dp"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/botAvatarView"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside"
+        android:layout_width="34dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="34dp" />
+
+    <TextView
+        android:id="@+id/botMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sender_chat_bubble"
+        android:layout_toRightOf="@+id/botAvatarView"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="9dp"
+        android:padding="10dp"
+        android:elevation="2dp"
+        android:textSize="18dp"
+        android:text="Hello, I'm a bot."  />
+
+    <ScrollView
+        android:id="@+id/responseScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/botMessage"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="9dp"
+        android:layout_toRightOf="@+id/botAvatarView"
+        android:visibility="gone"
+        >
+
+        <WebView
+            android:id="@+id/botMessageWebView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sender_chat_bubble"
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:text="Hello, I'm a bot."
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </ScrollView>
+
+</RelativeLayout>

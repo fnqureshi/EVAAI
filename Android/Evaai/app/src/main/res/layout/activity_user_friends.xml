@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="fill_horizontal"
+        android:background="#eee">
+
+        <Button
+            style="@style/backButton" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="32sp"
+            android:layout_height="32sp"
+            android:layout_margin="4sp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:layout_weight="1"
+            android:text="@string/userFriends"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="#ddd">
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="fill_horizontal">
+        
+        <RadioGroup
+            android:id="@+id/toggleTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="5dp"
+            android:paddingLeft="3dp">
+
+            <RadioButton
+                android:id="@+id/friendsTab"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/selected_tab"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/userFriends"
+                android:textSize="18dp"
+                android:checked="true"/>
+            <View
+                android:id="@+id/vSep1"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:background="#FFF"
+                android:visibility="visible" />
+            <RadioButton
+                android:id="@+id/followersTab"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_margin="1dp"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/selected_tab"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/userFollowers"
+                android:textSize="18dp" />
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/friendsListView"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:listSelector="@android:color/darker_gray" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/selectFriends"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_margin="1dp"
+            android:background="@drawable/select"
+            android:onClick="selectAllFriends" />
+
+        <Button
+            android:id="@+id/deleteFriends"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_margin="1dp"
+            android:background="@drawable/remove"
+            android:onClick="removeFriends" />
+
+        <ImageButton
+            android:id="@+id/viewUserProfile"
+            android:layout_width="50sp"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            android:background="@drawable/round_avatar"
+            android:onClick="viewUserProfile"
+            android:scaleType="center" />
+
+        <EditText
+            android:id="@+id/friendIdView"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:hint="Add Friend"
+            android:imeOptions="actionDone"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageButton
+            android:id="@+id/viewPublicUsers"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="viewUsers"
+            android:src="@drawable/arrow_down_green" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/userFollowersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60px"
+        android:text="@string/userFollowers"
+        android:textSize="20dp"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/followersListView"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray"
+        android:layout_weight="1"
+        android:visibility="gone"/>
+
+</LinearLayout>

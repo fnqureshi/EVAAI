@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="60dp"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/liveChatReceiverAvatar"
+        android:layout_alignParentRight="true"
+        android:layout_width="34dp"
+        android:layout_height="34dp" />
+
+    <TextView
+        android:id="@+id/liveChatReceiverDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/LightSlateGray"
+        android:layout_marginTop="5dp"
+        android:text="Date"
+        android:textSize="14dp"
+        android:paddingRight="10dp"
+        android:layout_alignTop="@+id/liveChatReceiverAvatar"
+        android:layout_alignRight="@+id/liveChatReceiverMessage" />
+
+    <TextView
+        android:id="@+id/liveChatReceiverMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/receiver_chat_bubble"
+        android:textColor="#fff"
+        android:padding="10dp"
+        android:elevation="2dp"
+        android:textSize="18dp"
+        android:layout_below="@+id/liveChatReceiverDate"
+        android:layout_toLeftOf="@+id/liveChatReceiverAvatar"
+        android:text="Live chat message" />
+
+</RelativeLayout>

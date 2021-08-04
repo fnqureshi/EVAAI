@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuUsers"
+        android:title="@string/browseUsers" />
+
+    <item android:id="@+id/menuBots"
+        android:title="@string/browseBots" />
+
+    <item android:id="@+id/menuSearch"
+        android:title="@string/search" />
+
+</menu>

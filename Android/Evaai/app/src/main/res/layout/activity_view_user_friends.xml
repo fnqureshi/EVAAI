@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="fill_horizontal"
+        android:background="#eee">
+
+        <Button
+            style="@style/backButton" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="32sp"
+            android:layout_height="32sp"
+            android:layout_margin="4sp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:layout_weight="1"
+            android:text="@string/userFriends"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="#ddd">
+    </View>
+
+    <ListView
+        android:id="@+id/friendsListView"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:listSelector="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/userFollowersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60px"
+        android:layout_marginLeft="5dp"
+        android:text="@string/userFollowers"
+        android:textSize="20dp" />
+
+
+    <ListView
+        android:id="@+id/followersListView"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tensorflow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Uploading finished</h1>
+    <img width="250" height="250" src="{{url_for('get_image',filename=image_name)}}">
+    <p>File Name: {{ image_name }}</p>
+    <h2>The Result</h2>
+    <ul>
+        {% for result in theResults %}
+            <li>{{result}}</li>
+        {% endfor %}
+    </ul>
+    <form id="Analytic-Form" action="{{ url_for('index') }}" method="GET">
+        <input type="submit" value="Analytic Test">
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Light">
+	    <item name="android:windowActionBar">false</item>
+	    <item name="android:windowNoTitle">true</item>
+	</style>
+    
+    <color name="lgrey">#d5d5d5</color>
+    <color name="dgrey">#808080</color>
+    <color name="green">#009900</color>
+    <color name="orange">#f99600</color>
+    <color name="red">#b00000</color>
+    <color name="yellow">#FFD700</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <style name="backButton" >
+        <item name="android:layout_width">32sp</item>
+        <item name="android:layout_height">32sp</item>
+        <item name="android:layout_margin">4sp</item>
+        <item name="android:background">@drawable/arrow_back</item>
+        <item name="android:onClick">backButton</item>
+    </style>
+
+    <style name="menuLayout" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4sp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="menuLayout2" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/menu_button</item>
+    </style>
+
+    <style name="menuIcon" >
+        <item name="android:layout_width">56sp</item>
+        <item name="android:layout_height">56sp</item>
+        <item name="android:layout_margin">16sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="menuText" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">2sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+</resources>

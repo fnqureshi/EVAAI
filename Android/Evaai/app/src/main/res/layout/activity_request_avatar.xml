@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:background="#FFFFFF"
+    android:orientation="vertical" >
+    
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+    	android:gravity="fill_horizontal"
+		android:background="#eee">
+
+		<Button
+			style="@style/backButton" />
+
+	    <ImageView
+	        android:id="@+id/icon"
+	        android:layout_width="32sp"
+	        android:layout_height="32sp"
+	        android:layout_margin="4sp"
+	        android:background="@drawable/icon" />
+
+
+		<TextView
+		    android:id="@+id/title"
+		    android:layout_width="0px"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="4sp"
+		    android:layout_weight="1"
+		    android:text="@string/customAvatar"
+		    android:textSize="18sp" />
+		
+		<Button
+			android:id="@+id/helpButton"
+	        android:layout_width="32sp"
+	        android:layout_height="32sp"
+	        android:layout_margin="4sp"
+	        android:background="@drawable/help"
+			android:onClick="help"
+			android:text="" />
+		
+	</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+		android:background="#ddd">
+    </View>
+    
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical" >
+        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    	android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp" >
+
+    <ImageView
+        android:id="@+id/imgFace"
+        android:src="@drawable/sendfile" 
+        android:layout_width="40sp"
+        android:layout_height="40sp"/>
+        
+    <EditText
+        android:id="@+id/txtFace"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.74"
+        android:focusable="false"
+        android:hint="@string/face"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+    
+    <ImageButton
+            android:id="@+id/btnFace"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_margin="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="btnFace"
+            android:src="@drawable/arrow_down_green" />
+    
+    </LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp" >
+
+    <ImageView
+        android:id="@+id/imgEyeColor"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:src="@drawable/sendfile" />
+        
+    <EditText
+        android:id="@+id/txtEyeColor"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:hint="@string/eyeColor"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+    
+    <ImageButton
+            android:id="@+id/btnEyeColor"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_margin="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="btnEyeColor"
+            android:src="@drawable/arrow_down_green" />
+    
+    </LinearLayout>
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp" >
+
+        <ImageView
+        android:id="@+id/imgHairColor"
+        android:src="@drawable/sendfile" 
+        android:layout_width="40sp"
+        android:layout_height="40sp"/>
+
+    <EditText
+        android:id="@+id/txtHairColor"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:hint="@string/hairColor"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+    
+    <ImageButton
+            android:id="@+id/btnHairColor"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_margin="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="btnHairColor"
+            android:src="@drawable/arrow_down_green" />
+    
+    </LinearLayout>
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp" >
+
+        <ImageView
+        android:id="@+id/imgHairStyle"
+        android:src="@drawable/sendfile" 
+        android:layout_width="40sp"
+        android:layout_height="40sp"/>
+
+    <EditText
+        android:id="@+id/txtHairStyle"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:hint="@string/hairStyle"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+    
+    <ImageButton
+            android:id="@+id/btnHairStyle"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_margin="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="btnHairStyle"
+            android:src="@drawable/arrow_down_green" />
+    
+    
+    </LinearLayout>
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp" >
+
+        <ImageView
+        android:id="@+id/imgBody"
+        android:src="@drawable/sendfile" 
+        android:layout_width="40sp"
+        android:layout_height="40sp"/>
+
+    <EditText
+        android:id="@+id/txtBody"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:hint="@string/body"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+    
+    <ImageButton
+            android:id="@+id/btnBody"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_margin="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="btnBody"
+            android:src="@drawable/arrow_down_green" />
+    
+    
+    </LinearLayout>
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp" >
+
+        <ImageView
+        android:id="@+id/imgCloths"
+        android:src="@drawable/sendfile" 
+        android:layout_width="40sp"
+        android:layout_height="40sp"/>
+
+    <EditText
+        android:id="@+id/txtCloths"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:hint="@string/cloths"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+    
+    <ImageButton
+            android:id="@+id/btnCloths"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_margin="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="btnCloths"
+            android:src="@drawable/arrow_down_green" />
+    
+    
+    </LinearLayout>
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp" >
+
+        <ImageView
+        android:id="@+id/imgPose"
+        android:src="@drawable/sendfile" 
+        android:layout_width="40sp"
+        android:layout_height="40sp"/>
+
+   <EditText
+       android:id="@+id/txtPose"
+       android:layout_width="0px"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:focusable="false"
+       android:hint="@string/pose"
+       android:imeOptions="actionDone"
+       android:inputType="text" />
+    
+    <ImageButton
+            android:id="@+id/btnPose"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_margin="4dp"
+            android:background="#FFFFFF"
+            android:scaleType="center"
+            android:onClick="btnPose"
+            android:src="@drawable/arrow_down_green" />
+    
+    </LinearLayout>
+
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="5dp"
+	    android:text="@string/daz3DModelNameorURL" />
+
+	<EditText
+	    android:id="@+id/modelText"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:ems="10"
+	    android:hint="@string/modelNameorURL"
+	    android:imeOptions="actionDone"
+	    android:inputType="text" >
+
+	    <requestFocus />
+	</EditText>
+
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:autoLink="web"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="5dp"
+	    android:text="@string/pickFromWWW" />
+
+    <EditText
+        android:id="@+id/commentsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/comments"
+        android:inputType="textMultiLine" />
+    
+    <EditText
+        android:id="@+id/emailText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/yourEmailAddress"
+        android:imeOptions="actionDone"
+        android:inputType="text" />
+<TextView
+    android:id="@+id/txtInfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Custom avatars may take several days to render"
+    android:padding="8dp"
+    />
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:background="@drawable/ok_button"
+        android:textColor="@color/white"
+        android:onClick="submit"
+        android:text="@string/submit" />
+    
+    </LinearLayout>
+    
+    </ScrollView>
+
+</LinearLayout>

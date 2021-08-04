@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:descendantFocusability="blocksDescendants">
+
+    <ImageView
+        android:id="@+id/userAvatar"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_margin="4sp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/userId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Id"
+        android:layout_alignParentLeft="true"
+        android:textSize="21dp"
+        android:maxLength="20"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/messageDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="17dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="11dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/LightSlateGray" />
+
+    <TextView
+        android:id="@+id/messageTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Topic"
+        android:textSize="17dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/SlateGray" />
+
+    <TextView
+        android:id="@+id/userMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:textSize="17dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/LightSlateGray" />
+
+</RelativeLayout>

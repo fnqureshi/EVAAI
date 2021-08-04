@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="60dp"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/liveChatSenderAvatar"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside"
+        android:layout_width="34dp"
+        android:layout_height="34dp" />
+
+    <TextView
+        android:id="@+id/liveChatSenderId"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/liveChatSenderAvatar"
+        android:layout_alignTop="@+id/liveChatSenderAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:textSize="14dp"
+        android:text="Creator Name"/>
+
+    <TextView
+        android:id="@+id/liveChatSenderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/LightSlateGray"
+        android:text="Date"
+        android:textSize="14dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="9dp"
+        android:layout_alignTop="@id/liveChatSenderId"
+        android:layout_toRightOf="@+id/liveChatSenderId"/>
+
+    <TextView
+        android:id="@+id/liveChatSenderMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/liveChatSenderDate"
+        android:layout_alignLeft="@+id/liveChatSenderId"
+        android:background="@drawable/sender_chat_bubble"
+        android:padding="10dp"
+        android:elevation="2dp"
+        android:textSize="18dp"
+        android:text="How are you? This is sender message." />
+
+    <ScrollView
+        android:id="@+id/liveChatScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/liveChatSenderMessage"
+        android:layout_alignLeft="@+id/liveChatSenderId"
+        android:visibility="gone">
+
+        <WebView
+            android:id="@+id/liveChatWebView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sender_chat_bubble"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="15px"
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:text="Hello, I'm a bot."
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </ScrollView>
+
+</RelativeLayout>

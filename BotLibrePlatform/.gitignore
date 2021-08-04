@@ -1,0 +1,8 @@
+/build
+/.metadata
+/.settings
+/log
+/bin
+
+/web/botlibreplatform.war
+/lib/botlibreplatform.jar

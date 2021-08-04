@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+
+	<LinearLayout
+		android:id="@+id/main_root"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:background="#B190FC" >
+
+		<VideoView
+			android:id="@+id/main_backgroundVideo"
+			android:layout_width="match_parent"
+			android:layout_height="0px"
+			android:layout_weight="1"
+			android:adjustViewBounds="true"
+			android:layout_gravity="center"
+			android:layout_centerInParent="true"
+			android:contentDescription="avatar" />
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:background="#8800F2"
+			android:text="Talk to"
+			android:textSize="32sp"
+			android:textColor="@color/white"
+			android:textAlignment="center"
+			android:paddingTop="16sp"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:background="#8800F2"
+			android:text="INSIGHT"
+			android:textSize="64sp"
+			android:textColor="@color/white"
+			android:textStyle="bold"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:background="#8800F2"
+			android:text="Companion"
+			android:textSize="32sp"
+			android:textColor="@color/white"
+			android:textAlignment="center"
+			android:paddingBottom="16sp"/>
+
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<Button
+				android:id="@+id/loginButton"
+				android:layout_width="180sp"
+				android:layout_height="wrap_content"
+				android:layout_margin="8sp"
+				android:layout_centerInParent="true"
+				android:background="@drawable/main_button2"
+				android:onClick="login"
+				android:text="Get started"
+				android:textColor="@color/white"/>
+
+		</RelativeLayout>
+
+		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="32sp">
+
+			<Button
+				android:id="@+id/startButton"
+				android:layout_width="180sp"
+				android:layout_height="wrap_content"
+				android:layout_margin="8sp"
+				android:layout_centerInParent="true"
+				android:background="@drawable/main_button"
+				android:onClick="signUp"
+				android:text="Signup     >"
+				android:textColor="@color/black" />
+
+			<Button
+				android:id="@+id/logoutButton"
+				android:layout_width="180sp"
+				android:layout_height="wrap_content"
+				android:layout_margin="8sp"
+				android:layout_centerInParent="true"
+				android:background="@drawable/main_button"
+				android:onClick="logout"
+				android:text="Logout"
+				android:textColor="@color/black"
+				android:visibility="gone"/>
+
+		</RelativeLayout>
+
+	</LinearLayout>
+
+</RelativeLayout>
