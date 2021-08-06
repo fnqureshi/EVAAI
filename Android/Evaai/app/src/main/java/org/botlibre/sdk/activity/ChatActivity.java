@@ -904,17 +904,17 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 				//super.onResume();
 				//return;
 			}
-			this.avatar = (AvatarConfig)MainActivity.instance;
+			this.avatar = (AvatarConfig) MainActivity.instance;
 			HttpGetImageAction.fetchImage(this, this.avatar.avatar, this.imageView);
 
-			AvatarConfig avatarConfig = (AvatarConfig)this.avatar.credentials();
+			AvatarConfig avatarConfig = (AvatarConfig) this.avatar.credentials();
 			HttpFetchChatAvatarAction action = new HttpFetchChatAvatarAction(this, avatarConfig);
 			action.execute();
 		}
 		MainActivity.browsing = false;
 		MainActivity.changeAvatar = false;
 		if ((MainActivity.instance instanceof InstanceConfig) && MainActivity.instance.id.equals(this.instance.id)) {
-			this.instance = (InstanceConfig)MainActivity.instance;
+			this.instance = (InstanceConfig) MainActivity.instance;
 		} else {
 			MainActivity.instance = this.instance;
 		}
@@ -946,6 +946,10 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 		}
 		super.onResume();
 
+		chatMenu();
+	}
+
+	public void chatMenu() {
 		if (ChatMenuActivity.action != null) {
 			if (ChatMenuActivity.action.equals("speak")) {
 				toggleSound();
@@ -953,52 +957,29 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 				changeVoice();
 			} else if (ChatMenuActivity.action.equals("deviceVoice")) {
 				toggleDeviceVoice();
+			} else if (ChatMenuActivity.action.equals("changeLanguage")) {
+				changeLanguage(null);
+			} else if (ChatMenuActivity.action.equals("handsFree")) {
+				toggleHandsFreeSpeech();
+			} else if (ChatMenuActivity.action.equals("microphone")) {
+				MicConfiguration();
+			} else if (ChatMenuActivity.action.equals("disableVideo")) {
+				toggleDisableVideo();
+			} else if (ChatMenuActivity.action.equals("hdVideo")) {
+				MainActivity.hd = !MainActivity.hd;
+			} else if (ChatMenuActivity.action.equals("webmVideo")) {
+				MainActivity.webm = !MainActivity.webm;
+			} else if (ChatMenuActivity.action.equals("changeAvatar")) {
+				changeAvatar();
+			} else if (ChatMenuActivity.action.equals("customizeAvatar")) {
+				customizeAvatar();
+			} else if (ChatMenuActivity.action.equals("noAds")) {
+				noAds();
+			} else if (ChatMenuActivity.action.equals("command")) {
+				postback(ChatMenuActivity.command);
 			}
 			ChatMenuActivity.action = null;
 
-			/*case R.id.menuChangeLanguage:
-				changeLanguage(null);
-				return true;
-			case R.id.menuChangeVoice:
-				changeVoice();
-				return true;
-			case R.id.menuHandsFreeSpeech:
-				toggleHandsFreeSpeech();
-				return true;
-			case R.id.menuSound:
-				toggleSound();
-				return true;
-			case R.id.menuDeviceVoice:
-				toggleDeviceVoice();
-				return true;
-			case R.id.menuDisableVideo:
-				toggleDisableVideo();
-				return true;
-			case R.id.menuCorrection:
-				submitCorrection();
-				return true;
-			case R.id.menuFlag:
-				flagResponse();
-				return true;
-			case R.id.menuHD:
-				MainActivity.hd = !MainActivity.hd;
-				return true;
-			case R.id.menuWebm:
-				MainActivity.webm = !MainActivity.webm;
-				return true;
-			case R.id.menuChangeAvatar:
-				changeAvatar();
-				return true;
-			case R.id.menuCustomizeAvatar:
-				customizeAvatar();
-				return true;
-			case R.id.menuNoAds:
-				noAds();
-				return true;
-			case R.id.MicConfig:
-				MicConfiguration();
-				finish();
-				return true;*/
 		}
 	}
 

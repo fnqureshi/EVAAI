@@ -23,7 +23,7 @@
     </style>
 
     <style name="menuLayout" >
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">102sp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">4sp</item>
         <item name="android:orientation">vertical</item>
@@ -40,6 +40,13 @@
         <item name="android:layout_width">56sp</item>
         <item name="android:layout_height">56sp</item>
         <item name="android:layout_margin">16sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="commandIcon" >
+        <item name="android:layout_width">96sp</item>
+        <item name="android:layout_height">96sp</item>
+        <item name="android:layout_margin">2sp</item>
         <item name="android:layout_gravity">center</item>
     </style>
 

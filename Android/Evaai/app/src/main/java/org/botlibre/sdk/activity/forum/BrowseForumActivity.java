@@ -133,6 +133,9 @@ public class BrowseForumActivity extends BrowseActivity {
         case R.id.menuMyPosts:
         	browseMyPosts();
             return true;
+		case R.id.menuNewForum:
+			newForum();
+			return true;
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -152,6 +155,13 @@ public class BrowseForumActivity extends BrowseActivity {
 		MainActivity.instance = null;
 		Intent intent = new Intent(this, SearchPostsActivity.class);
         startActivity(intent);
+	}
+
+	public void newForum() {
+		finish();
+		MainActivity.instance = null;
+		Intent intent = new Intent(this, CreateForumActivity.class);
+		startActivity(intent);
 	}
 
 	public void browseMyPosts() {

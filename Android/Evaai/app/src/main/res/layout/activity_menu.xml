@@ -71,7 +71,7 @@
 			android:padding="8sp"
 			android:textAlignment="center"
 			android:onClick="selectCommand"
-			android:text="Command"/>
+			android:text="Skills"/>
 
 	</LinearLayout>
 
@@ -108,14 +108,21 @@
 			android:padding="8sp"
 			android:textAlignment="center"
 			android:background="@drawable/menu_toggle"
-			android:text="Command"/>
+			android:text="Skills"/>
 
 	</LinearLayout>
+
+	<ScrollView
+		android:id="@+id/menuScroll"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:fillViewport="true"
+		android:scrollbars="vertical" >
 
 	<LinearLayout
 		android:id="@+id/menuItems"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_height="wrap_content"
 		android:layout_marginTop="16sp"
 		android:layout_marginBottom="16sp"
 		android:layout_marginLeft="4sp"
@@ -172,18 +179,55 @@
 
 		</LinearLayout>
 
-	</LinearLayout>
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
 
-	<LinearLayout
-		android:id="@+id/commandItems"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_marginTop="16sp"
-		android:layout_marginBottom="16sp"
-		android:layout_marginLeft="4sp"
-		android:layout_marginRight="4sp"
-		android:orientation="vertical"
-		android:visibility="gone">
+			<LinearLayout
+				style="@style/menuLayout">
+				<LinearLayout
+					style="@style/menuLayout2">
+					<ImageView
+						style="@style/menuIcon"
+						android:background="@drawable/hands_free"
+						android:onClick="handsFree"/>
+				</LinearLayout>
+				<TextView
+					style="@style/menuText"
+					android:text="Hands Free"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<LinearLayout
+					style="@style/menuLayout2">
+					<ImageView
+						style="@style/menuIcon"
+						android:background="@drawable/microphone"
+						android:onClick="microphone" />
+				</LinearLayout>
+				<TextView
+					style="@style/menuText"
+					android:text="Microphone"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<LinearLayout
+					style="@style/menuLayout2">
+					<ImageView
+						style="@style/menuIcon"
+						android:background="@drawable/change_language"
+						android:onClick="changeLanguage" />
+				</LinearLayout>
+				<TextView
+					style="@style/menuText"
+					android:text="Change Language"/>
+			</LinearLayout>
+
+		</LinearLayout>
 
 		<LinearLayout
 			android:layout_width="wrap_content"
@@ -197,12 +241,12 @@
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
-						android:background="@drawable/speak"
-						android:onClick="speak"/>
+						android:background="@drawable/change_avatar"
+						android:onClick="changeAvatar"/>
 				</LinearLayout>
 				<TextView
 					style="@style/menuText"
-					android:text="Observe my\nthoughts"/>
+					android:text="Change Avatar"/>
 			</LinearLayout>
 
 			<LinearLayout
@@ -211,12 +255,12 @@
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
-						android:background="@drawable/device_voice"
-						android:onClick="deviceVoice" />
+						android:background="@drawable/customize_avatar"
+						android:onClick="customizeAvatar" />
 				</LinearLayout>
 				<TextView
 					style="@style/menuText"
-					android:text="Create Sound\nScapes"/>
+					android:text="Customize Avatar"/>
 			</LinearLayout>
 
 			<LinearLayout
@@ -225,9 +269,122 @@
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
-						android:background="@drawable/change_voice"
-						android:onClick="changeVoice" />
+						android:background="@drawable/no_ads"
+						android:onClick="noAds" />
 				</LinearLayout>
+				<TextView
+					style="@style/menuText"
+					android:text="No Ads"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<LinearLayout
+					style="@style/menuLayout2">
+					<ImageView
+						style="@style/menuIcon"
+						android:background="@drawable/hd_video"
+						android:onClick="hdVideo"/>
+				</LinearLayout>
+				<TextView
+					style="@style/menuText"
+					android:text="HD Video"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<LinearLayout
+					style="@style/menuLayout2">
+					<ImageView
+						style="@style/menuIcon"
+						android:background="@drawable/webm_video"
+						android:onClick="webmVideo" />
+				</LinearLayout>
+				<TextView
+					style="@style/menuText"
+					android:text="Webm Video"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<LinearLayout
+					style="@style/menuLayout2">
+					<ImageView
+						style="@style/menuIcon"
+						android:background="@drawable/disable_video"
+						android:onClick="disableVideo" />
+				</LinearLayout>
+				<TextView
+					style="@style/menuText"
+					android:text="Disable Video"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	</ScrollView>
+
+	<ScrollView
+		android:id="@+id/commandScroll"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:fillViewport="true"
+		android:scrollbars="vertical"
+		android:visibility="gone" >
+
+	<LinearLayout
+		android:id="@+id/commandItems"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="16sp"
+		android:layout_marginBottom="16sp"
+		android:layout_marginLeft="4sp"
+		android:layout_marginRight="4sp"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/observer_my_thoughts"
+					android:onClick="observeThoughts"/>
+				<TextView
+					style="@style/menuText"
+					android:text="Observe my thoughts"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/create_sounds_scapes"
+					android:onClick="soundScapes" />
+				<TextView
+					style="@style/menuText"
+					android:text="Create Sound Scapes"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/pomodoro"
+					android:onClick="pomodoro" />
 				<TextView
 					style="@style/menuText"
 					android:text="Pomodoro"/>
@@ -235,6 +392,83 @@
 
 		</LinearLayout>
 
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/create_ambient_music"
+					android:onClick="ambientMusic"/>
+				<TextView
+					style="@style/menuText"
+					android:text="Create Ambient Music"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/social_sitution"
+					android:onClick="socialSituation" />
+				<TextView
+					style="@style/menuText"
+					android:text="Simulate Social Situation"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/start_mediation"
+					android:onClick="startMeditation" />
+				<TextView
+					style="@style/menuText"
+					android:text="Start Meditation"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/journal"
+					android:onClick="journal"/>
+				<TextView
+					style="@style/menuText"
+					android:text="Journal"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/create_private_chatroom"
+					android:onClick="privateChatroom" />
+				<TextView
+					style="@style/menuText"
+					android:text="Create Private Chatroom"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+			</LinearLayout>
+
+		</LinearLayout>
+
 	</LinearLayout>
+
+	</ScrollView>
 
 </LinearLayout>

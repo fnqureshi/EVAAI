@@ -19,14 +19,21 @@
 package org.botlibre.sdk.activity.livechat;
 
 import org.botlibre.sdk.activity.BrowseActivity;
+import org.botlibre.sdk.activity.MainActivity;
 import org.botlibre.sdk.activity.actions.HttpAction;
 import org.botlibre.sdk.activity.actions.HttpFetchAction;
+import org.botlibre.sdk.activity.forum.CreateForumActivity;
 import org.botlibre.sdk.config.ChannelConfig;
 
 import io.evaai.R;
 
+import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 
 /**
  * Activity for choosing a channel from the search results.
@@ -61,4 +68,45 @@ public class BrowseChannelActivity extends BrowseActivity {
         HttpAction action = new HttpFetchAction(this, config, true);
     	action.execute();
 	}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.menuNewChannel:
+                newChannel();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void menu(View view) {
+        PopupMenu popup = new PopupMenu(this, view);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_browse_channel, popup.getMenu());
+        onPrepareOptionsMenu(popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return onOptionsItemSelected(item);
+            }
+        });
+        popup.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_browse_channel, menu);
+        return true;
+    }
+
+    public void newChannel() {
+        finish();
+        MainActivity.instance = null;
+        Intent intent = new Intent(this, CreateChannelActivity.class);
+        startActivity(intent);
+    }
 }
