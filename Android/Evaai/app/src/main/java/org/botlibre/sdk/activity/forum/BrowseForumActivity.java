@@ -55,6 +55,10 @@ public class BrowseForumActivity extends BrowseActivity {
 	public String getType() {
 		return "Forum";
 	}
+
+	public String getDisplayType() {
+		return "Journal";
+	}
 	
 	public void selectInstance(View view) {
         ListView list = (ListView) findViewById(R.id.instancesList);

@@ -71,6 +71,8 @@ import io.evaai.R;
 import org.botlibre.sdk.activity.MainActivity.LaunchType;
 import org.botlibre.sdk.activity.actions.HttpAction;
 import org.botlibre.sdk.activity.actions.HttpChatAction;
+import org.botlibre.sdk.activity.actions.HttpCreateChannelFileAttachmentAction;
+import org.botlibre.sdk.activity.actions.HttpCreateChannelImageAttachmentAction;
 import org.botlibre.sdk.activity.actions.HttpFetchChatAvatarAction;
 import org.botlibre.sdk.activity.actions.HttpGetImageAction;
 import org.botlibre.sdk.activity.actions.HttpGetInstancesAction;
@@ -81,6 +83,7 @@ import org.botlibre.sdk.config.ChannelConfig;
 import org.botlibre.sdk.config.ChatConfig;
 import org.botlibre.sdk.config.ChatResponse;
 import org.botlibre.sdk.config.InstanceConfig;
+import org.botlibre.sdk.config.MediaConfig;
 import org.botlibre.sdk.config.VoiceConfig;
 import org.botlibre.sdk.config.WebMediumConfig;
 import org.botlibre.sdk.util.Command;
@@ -403,7 +406,7 @@ public abstract class AbstractChatActivity extends LibreActivity implements Text
 			}
 		});
 	}
-	
+
 	/**
 	 * Disconnect from the conversation.
 	 */

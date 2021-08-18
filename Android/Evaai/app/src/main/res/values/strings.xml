@@ -129,7 +129,7 @@
     <string name="contentRating">Content Rating</string>
     <string name="createBot">Create Bot</string>
     <string name="createDomain">Create Workspace</string>
-    <string name="createFourm">Create Forum</string>
+    <string name="createFourm">Create Journal</string>
     <string name="post">Post</string>
     <string name="cancel">Cancel</string>
     <string name="viewUser">View User</string>
@@ -164,7 +164,7 @@
     <string name="language">Language</string>
     <string name="showName">Show Name</string>
     <string name="editDomain">Edit Workspace</string>
-    <string name="editForum">Edit Forum</string>
+    <string name="editForum">Edit Journal</string>
     <string name="editPost">Edit Post</string>
     <string name="featured">Featured</string>
     <string name="editGraphic">Edit Graphic</string>
@@ -173,7 +173,7 @@
     <string name="browsePosts">Browse Posts</string>
     <string name="download">Download</string>
     <string name="faq">FAQ</string>
-    <string name="forum">Forum</string>
+    <string name="forum">Journal</string>
     <string name="helpBot">Help Bot</string>
     <string name="liveSupport">Live Support</string>
     <string name="email">Email</string>
@@ -222,7 +222,7 @@
     <string name="learningRate">Learning Rate %</string>
     <string name="hairStyle">Hair Style</string>
     <string name="importScript">Import Script</string>
-    <string name="myForums">My Forums</string>
+    <string name="myForums">My Journals</string>
     <string name="helpText1">Welcome to help. Check our FAQ or forums, chat with our Help Bot or our live support experts. Email us, or find additional resources on our website.</string>
     <string name="markValid">Mark Valid</string>
     <string name="hairColor">Hair Color</string>
@@ -260,7 +260,7 @@
     <string name="editChannel">Edit Channel</string>
     <string name="editScript">Edit Script</string>
     <string name="currentPassword">Current Password</string>
-    <string name="forumFlagged">This forum has be flagged</string>
+    <string name="forumFlagged">This journal has be flagged</string>
     <string name="graphicFlagged">This graphic has been flagged</string>
     <string name="learningMode">Learning Mode</string>
     <string name="correctionMode">Correction Mode</string>
@@ -282,7 +282,7 @@
     <string name="comments">Comments</string>
     <string name="command">Command</string>
     <string name="addImage">Add Image</string>
-    <string name="Forums">Forums</string>
+    <string name="Forums">Journals</string>
     <string name="duration">Duration</string>
     <string name="addMedia">Add Media</string>
     <string name="browseAllPosts">Browse All Posts</string>

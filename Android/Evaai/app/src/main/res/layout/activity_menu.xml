@@ -329,6 +329,18 @@
 
 		</LinearLayout>
 
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+			</LinearLayout>
+
+		</LinearLayout>
+
 	</LinearLayout>
 
 	</ScrollView>
@@ -376,7 +388,130 @@
 					android:onClick="soundScapes" />
 				<TextView
 					style="@style/menuText"
-					android:text="Create Sound Scapes"/>
+					android:text="Create Soundscapes"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/start_meditation"
+					android:onClick="startMeditation" />
+				<TextView
+					style="@style/menuText"
+					android:text="Start Meditation"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/mindful_workout"
+					android:onClick="mindfulWorkout"/>
+				<TextView
+					style="@style/menuText"
+					android:text="Mindful Workout"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/what_my_face_says_about_me"
+					android:onClick="whatMyFaceSaysAboutMe" />
+				<TextView
+					style="@style/menuText"
+					android:text="What my face says about me"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/interpret_my_dreams"
+					android:onClick="interpretMyDreams" />
+				<TextView
+					style="@style/menuText"
+					android:text="Interpret my Dreams"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/social_sitution"
+					android:onClick="socialSituation" />
+				<TextView
+					style="@style/menuText"
+					android:text="Simulate Social Situation"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/create_ambient_music"
+					android:onClick="ambientMusic"/>
+				<TextView
+					style="@style/menuText"
+					android:text="Create Ambient Music"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/create_private_chatroom"
+					android:onClick="privateChatroom" />
+				<TextView
+					style="@style/menuText"
+					android:text="Create Private Chatroom"/>
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_gravity="center">
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/find_peaceful_place"
+					android:onClick="findPeacefulPlace"/>
+				<TextView
+					style="@style/menuText"
+					android:text="Find Peaceful place"/>
+			</LinearLayout>
+
+			<LinearLayout
+				style="@style/menuLayout">
+				<ImageView
+					style="@style/commandIcon"
+					android:background="@drawable/journal"
+					android:onClick="journal"/>
+				<TextView
+					style="@style/menuText"
+					android:text="Journal"/>
 			</LinearLayout>
 
 			<LinearLayout
@@ -402,33 +537,33 @@
 				style="@style/menuLayout">
 				<ImageView
 					style="@style/commandIcon"
-					android:background="@drawable/create_ambient_music"
-					android:onClick="ambientMusic"/>
+					android:background="@drawable/asmr"
+					android:onClick="asmr"/>
 				<TextView
 					style="@style/menuText"
-					android:text="Create Ambient Music"/>
+					android:text="ASMR"/>
 			</LinearLayout>
 
 			<LinearLayout
 				style="@style/menuLayout">
 				<ImageView
 					style="@style/commandIcon"
-					android:background="@drawable/social_sitution"
-					android:onClick="socialSituation" />
+					android:background="@drawable/help_me_sleep"
+					android:onClick="helpMeSleep"/>
 				<TextView
 					style="@style/menuText"
-					android:text="Simulate Social Situation"/>
+					android:text="Help me sleep"/>
 			</LinearLayout>
 
 			<LinearLayout
 				style="@style/menuLayout">
 				<ImageView
 					style="@style/commandIcon"
-					android:background="@drawable/start_mediation"
-					android:onClick="startMeditation" />
+					android:background="@drawable/shadow_work"
+					android:onClick="shadowWork" />
 				<TextView
 					style="@style/menuText"
-					android:text="Start Meditation"/>
+					android:text="Shadow work"/>
 			</LinearLayout>
 
 		</LinearLayout>
@@ -438,28 +573,6 @@
 			android:layout_height="wrap_content"
 			android:orientation="horizontal"
 			android:layout_gravity="center">
-
-			<LinearLayout
-				style="@style/menuLayout">
-				<ImageView
-					style="@style/commandIcon"
-					android:background="@drawable/journal"
-					android:onClick="journal"/>
-				<TextView
-					style="@style/menuText"
-					android:text="Journal"/>
-			</LinearLayout>
-
-			<LinearLayout
-				style="@style/menuLayout">
-				<ImageView
-					style="@style/commandIcon"
-					android:background="@drawable/create_private_chatroom"
-					android:onClick="privateChatroom" />
-				<TextView
-					style="@style/menuText"
-					android:text="Create Private Chatroom"/>
-			</LinearLayout>
 
 			<LinearLayout
 				style="@style/menuLayout">

@@ -412,6 +412,46 @@ public class SDKConnection {
 	}
 
 	/**
+	 * Create a new file/image/media attachment for a bot.
+	 */
+	public MediaConfig createBotFileAttachment(String file, MediaConfig config) {
+		config.addCredentials(this);
+		String xml = POSTFILE(this.url + "/create-bot-attachment", file, config.name, config.toXML());
+		Element root = parse(xml);
+		if (root == null) {
+			return null;
+		}
+		try {
+			MediaConfig media = new MediaConfig();
+			media.parseXML(root);
+			return media;
+		} catch (Exception exception) {
+			this.exception = SDKException.parseFailure(exception);
+			throw this.exception;
+		}
+	}
+
+	/**
+	 * Create a new image attachment for a bot.
+	 */
+	public MediaConfig createBotImageAttachment(String file, MediaConfig config) {
+		config.addCredentials(this);
+		String xml = POSTIMAGE(this.url + "/create-bot-attachment", file, config.name, config.toXML());
+		Element root = parse(xml);
+		if (root == null) {
+			return null;
+		}
+		try {
+			MediaConfig media = new MediaConfig();
+			media.parseXML(root);
+			return media;
+		} catch (Exception exception) {
+			this.exception = SDKException.parseFailure(exception);
+			throw this.exception;
+		}
+	}
+
+	/**
 	 * Create a new image attachment for a chat channel.
 	 */
 	public MediaConfig createChannelImageAttachment(String file, MediaConfig config) {

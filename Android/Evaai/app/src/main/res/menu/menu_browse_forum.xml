@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
      
     <item android:id="@+id/menuMyBots"
-          android:title="@string/myForums" />
+          android:title="My Journals" />
     
     <item android:id="@+id/menuFeatured"
           android:title="@string/browseFeatured" />
@@ -26,6 +26,6 @@
           android:title="@string/searchAllPosts" />
 
     <item android:id="@+id/menuNewForum"
-        android:title="Create New Forum" />
+        android:title="Create New Journal" />
      
 </menu>

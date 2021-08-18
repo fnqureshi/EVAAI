@@ -180,6 +180,15 @@
 			android:background="@drawable/sound"
 			android:onClick="toggleSound"
 			android:text="" />
+
+		<Button
+			android:id="@+id/uploadButton"
+			android:layout_width="42sp"
+			android:layout_height="42sp"
+			android:layout_margin="4dp"
+			android:background="@drawable/up"
+			android:onClick="uploadFile"
+			android:text="" />
 		
 		<Button
 			android:id="@+id/correctionButton"
@@ -197,11 +206,11 @@
 			android:layout_height="wrap_content"
 			android:textAppearance="?android:attr/textAppearanceSmall" />
 
-		<Spinner
+		<!--Spinner
 			android:id="@+id/actionSpin"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:textAppearance="?android:attr/textAppearanceSmall" />
+			android:textAppearance="?android:attr/textAppearanceSmall" /-->
 
 	</LinearLayout>
 

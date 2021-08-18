@@ -260,7 +260,7 @@ public class BrowseActivity extends LibreActivity {
         if (MainActivity.user == null) {
         	item.setVisible(false);
         }
-        item.setTitle("My " + getType() + "s");
+        item.setTitle("My " + getDisplayType() + "s");
 	    return true;
 	}
 

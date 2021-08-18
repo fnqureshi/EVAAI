@@ -79,7 +79,7 @@ public abstract class SearchActivity extends LibreActivity {
 		checkbox.setChecked(MainActivity.showImages);
 		
 		TextView title = (TextView) findViewById(R.id.title);
-		title.setText("Search " + getType() + "s");
+		title.setText("Search " + getDisplayType() + "s");
     	
 		sortSpin = (Spinner) findViewById(R.id.sortSpin);
 		ArrayAdapter adapter = new ArrayAdapter(this,
@@ -210,6 +210,10 @@ public abstract class SearchActivity extends LibreActivity {
 	
 	public abstract String getType();
 
+	public String getDisplayType() {
+		return getType();
+	}
+
 	public void menu(View view) {
 		PopupMenu popup = new PopupMenu(this, view);
 	    MenuInflater inflater = popup.getMenuInflater();
@@ -256,7 +260,7 @@ public abstract class SearchActivity extends LibreActivity {
         if (MainActivity.user == null) {
         	item.setVisible(false);
         }
-        item.setTitle("My " + getType() + "s");
+        item.setTitle("My " + getDisplayType() + "s");
 	    return true;
 	}
 

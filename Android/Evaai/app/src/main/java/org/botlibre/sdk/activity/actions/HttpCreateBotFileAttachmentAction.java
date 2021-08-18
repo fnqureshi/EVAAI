@@ -20,16 +20,17 @@ package org.botlibre.sdk.activity.actions;
 
 import android.app.Activity;
 
+import org.botlibre.sdk.activity.ChatActivity;
 import org.botlibre.sdk.activity.MainActivity;
 import org.botlibre.sdk.activity.livechat.LiveChatActivity;
 import org.botlibre.sdk.config.MediaConfig;
 
-public class HttpCreateChannelFileAttachmentAction extends HttpUIAction {
+public class HttpCreateBotFileAttachmentAction extends HttpUIAction {
 
 	MediaConfig config;
 	String file;
-	
-	public HttpCreateChannelFileAttachmentAction(Activity activity, String file, MediaConfig config) {
+
+	public HttpCreateBotFileAttachmentAction(Activity activity, String file, MediaConfig config) {
 		super(activity);
 		this.config = config;
 		this.file = file;
@@ -38,7 +39,7 @@ public class HttpCreateChannelFileAttachmentAction extends HttpUIAction {
 	@Override
 	protected String doInBackground(Void... params) {
 		try {
-			this.config = MainActivity.connection.createChannelFileAttachment(this.file, this.config);
+		this.config = MainActivity.connection.createBotFileAttachment(this.file, this.config);
 		} catch (Exception exception) {
 			this.exception = exception;
 		}
@@ -51,6 +52,6 @@ public class HttpCreateChannelFileAttachmentAction extends HttpUIAction {
 		if (this.exception != null) {
 			return;
 		}
-		((LiveChatActivity)this.activity).sendFile(config);
+		((ChatActivity)this.activity).sendFile(config);
     }
 }

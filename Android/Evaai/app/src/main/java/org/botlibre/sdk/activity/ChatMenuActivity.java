@@ -118,7 +118,31 @@ public class ChatMenuActivity extends LibreActivity {
 
 	public void soundScapes(View view) {
 		action = "command";
-		command = "create sound scapes";
+		command = "create soundscapes";
+		finish();
+	}
+
+	public void mindfulWorkout(View view) {
+		action = "command";
+		command = "mindful workout";
+		finish();
+	}
+
+	public void whatMyFaceSaysAboutMe(View view) {
+		action = "command";
+		command = "what my face says about me";
+		finish();
+	}
+
+	public void interpretMyDreams(View view) {
+		action = "command";
+		command = "interpret my dreams";
+		finish();
+	}
+
+	public void findPeacefulPlace(View view) {
+		action = "command";
+		command = "find peaceful place";
 		finish();
 	}
 
@@ -143,6 +167,24 @@ public class ChatMenuActivity extends LibreActivity {
 	public void startMeditation(View view) {
 		action = "command";
 		command = "start meditation";
+		finish();
+	}
+
+	public void asmr(View view) {
+		action = "command";
+		command = "asmr";
+		finish();
+	}
+
+	public void helpMeSleep(View view) {
+		action = "command";
+		command = "help me sleep";
+		finish();
+	}
+
+	public void shadowWork(View view) {
+		action = "command";
+		command = "shadow work";
 		finish();
 	}
 

@@ -30,6 +30,10 @@ import java.util.Random;
 import org.botlibre.sdk.activity.MainActivity.LaunchType;
 import org.botlibre.sdk.activity.actions.HttpAction;
 import org.botlibre.sdk.activity.actions.HttpChatAction;
+import org.botlibre.sdk.activity.actions.HttpCreateBotFileAttachmentAction;
+import org.botlibre.sdk.activity.actions.HttpCreateBotImageAttachmentAction;
+import org.botlibre.sdk.activity.actions.HttpCreateChannelFileAttachmentAction;
+import org.botlibre.sdk.activity.actions.HttpCreateChannelImageAttachmentAction;
 import org.botlibre.sdk.activity.actions.HttpFetchChatAvatarAction;
 import org.botlibre.sdk.activity.actions.HttpGetImageAction;
 import org.botlibre.sdk.activity.actions.HttpGetInstancesAction;
@@ -41,6 +45,7 @@ import org.botlibre.sdk.config.BrowseConfig;
 import org.botlibre.sdk.config.ChatConfig;
 import org.botlibre.sdk.config.ChatResponse;
 import org.botlibre.sdk.config.InstanceConfig;
+import org.botlibre.sdk.config.MediaConfig;
 import org.botlibre.sdk.config.VoiceConfig;
 import org.botlibre.sdk.util.Command;
 import org.botlibre.sdk.util.CommandProcessor;
@@ -123,7 +128,9 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 	private LinearLayout chatInputLayout;
 	private LinearLayout chatToolBar;
 	private LinearLayout chatListLayout;
-	
+
+	protected String childActivity = "";
+
 	protected Menu menu;
 
 	public MediaPlayer backgroundAudioPlayer;
@@ -212,7 +219,7 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 		Spinner emoteSpin = (Spinner) findViewById(R.id.emoteSpin);
 		emoteSpin.setAdapter(new EmoteSpinAdapter(this, R.layout.emote_list, Arrays.asList(EmotionalState.values())));
 
-		Spinner actionSpin = (Spinner) findViewById(R.id.actionSpin);
+		/*Spinner actionSpin = (Spinner) findViewById(R.id.actionSpin);
 		actionSpin.setAdapter(new ActionSpinAdapter(this, R.layout.action_list, Arrays.asList(MainActivity.actions)));
 		actionSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
@@ -227,7 +234,7 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 			@Override
 			public void onNothingSelected(AdapterView<?> adapter) {
 			}
-		});
+		});*/
 
 		ListView list = (ListView) findViewById(R.id.chatList);
 		list.setAdapter(new ChatListAdapter(this, R.layout.chat_list, this.messages));
@@ -458,19 +465,6 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 		};
 		thread1.start();
 	}
-	
-	@SuppressLint("Override")
-	public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-		switch (requestCode) {
-		case 1: {
-			if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-			} else {
-				Toast.makeText(ChatActivity.this, "Permission denied to Record Audio", Toast.LENGTH_SHORT).show();
-			}
-			return;
-		}
-		}
-	}
 
 	public void resetChat(View view) {
 		ChatConfig config = new ChatConfig();
@@ -505,54 +499,118 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 		});
 	}
 
+	public void uploadFile(View view) {
+		ActivityCompat.requestPermissions(this,
+				new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+	}
+
+	public void sendImage() {
+		ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE },3);
+	}
+
+	public void sendFile(MediaConfig media) {
+		try {
+			String message = "file: " + media.name + " : " + media.type + " : http://"
+					+ MainActivity.connection.getCredentials().host + MainActivity.connection.getCredentials().app + "/" + media.file;
+			EditText view = (EditText) findViewById(R.id.messageText);
+			view.setText(message);
+			this.submitChat();
+		} catch (Exception exception) {
+			MainActivity.error(exception.getMessage(), exception, this);
+			return;
+		}
+	}
+
+	@SuppressLint("Override")
+	public void onRequestPermissionsResult(int requestCode,
+										   String permissions[], int[] grantResults) {
+		switch (requestCode) {
+			case 2: {
+				if (grantResults.length > 0
+						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					Intent upload = new Intent(Intent.ACTION_GET_CONTENT);
+					upload.setType("*/*");
+					this.childActivity = "sendFile";
+					try {
+						startActivityForResult(upload, 2);
+					} catch (Exception notFound) {
+						this.childActivity = "sendFile";
+						upload = new Intent(Intent.ACTION_GET_CONTENT);
+						upload.setType("file/*");
+						startActivityForResult(upload, 2);
+					}
+				} else {
+					Toast.makeText(this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+				}
+				return;
+			}
+
+			case 3:{
+				if (grantResults.length > 0
+						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					try {
+						Intent upload = new Intent(Intent.ACTION_GET_CONTENT);
+						upload.setType("image/*");
+						this.childActivity = "sendImage";
+						startActivityForResult(upload, 3);
+					} catch (Exception exception) {
+						MainActivity.error(exception.getMessage(), exception, this);
+						return;
+					}
+				} else {
+					Toast.makeText(this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+				}
+				return;
+			}
+
+		}
+	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
- 
-		switch (requestCode) {
-			case CAPTURE_IMAGE: {
-	
-				if (resultCode == RESULT_OK) {
-					//TODO Make camera intent stop app from reseting
-					//Uri photoUri = data.getData();
-					//Do what we like with the photo - send to bot, etc
-	
-				} else if (resultCode == RESULT_CANCELED) {
-					//textView.setText("Cancelled");
-					//submitChat();
-				} 
-	
-				break;
-			}
-			case CAPTURE_VIDEO: {
-				if (resultCode == RESULT_OK) {
-					Uri videoUri = data.getData();
-					//Do what we would like with the video
-					
-				} else if (resultCode == RESULT_CANCELED) {
-					//textView.setText("Cancelled");
-					//submitChat();
-				} 
-				break;
-			}
-			case RESULT_SPEECH: {
-				if (resultCode == RESULT_OK && data != null) {
-	
+
+		if (this.childActivity.equals("")) {
+			if (requestCode == RESULT_SPEECH) {
+				if (resultCode == RESULT_OK && null != data) {
+
 					ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-					textView.setText(text.get(0));
-					submitChat();
+					if (text != null) {
+						textView.setText(text.get(0));
+						submitChat();
+					}
 				}
-				break;
+				return;
 			}
+			return;
 		}
-		IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-		if (scanResult != null) {
-			textView.setText("lookup " + scanResult.getContents());
-			submitChat();
-			if (scanResult.getContents().startsWith("http")) {
-				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(scanResult.getContents()));
-				startActivity(intent);
+
+		if (resultCode != RESULT_OK) {
+			return;
+		}
+		if (data == null || data.getData() == null) {
+			this.childActivity = "";
+			return;
+		}
+
+		try {
+			String file = MainActivity.getFilePathFromURI(this, data.getData());
+			MediaConfig config = new MediaConfig();
+			config.name = MainActivity.getFileNameFromPath(file);
+			config.type = MainActivity.getFileTypeFromPath(file);
+			config.instance = this.instance.id;
+			if (this.childActivity.equals("sendImage")) {
+				HttpAction action = new HttpCreateBotImageAttachmentAction(this, file, config);
+				action.execute().get();
+			} else {
+				HttpAction action = new HttpCreateBotFileAttachmentAction(this, file, config);
+				action.execute().get();
 			}
+			this.childActivity = "";
+		} catch (Exception exception) {
+			this.childActivity = "";
+			MainActivity.error(exception.getMessage(), exception, this);
+			return;
 		}
 	}
 

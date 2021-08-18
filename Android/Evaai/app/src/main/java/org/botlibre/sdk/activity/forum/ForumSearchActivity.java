@@ -50,7 +50,7 @@ public class ForumSearchActivity extends SearchActivity {
 			return;
 		}
 		RadioButton radio = (RadioButton)findViewById(R.id.personalRadio);
-		radio.setText("My Forums");
+		radio.setText("My Journals");
     	
 		Spinner sortSpin = (Spinner) findViewById(R.id.sortSpin);
 		ArrayAdapter adapter = new ArrayAdapter(this,
@@ -72,6 +72,10 @@ public class ForumSearchActivity extends SearchActivity {
 	
 	public String getType() {		
 		return "Forum";
+	}
+
+	public String getDisplayType() {
+		return "Journal";
 	}
 
 	public void menu(View view) {
