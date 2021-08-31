@@ -47,6 +47,8 @@ import android.provider.MediaStore;
  */
 @SuppressLint({ "DefaultLocale", "NewApi" })
 public class Command {
+	static long timerClear = 0;
+
 	protected Context context;
 	protected JSONObject jsonObject;
 	protected PackageManager manager;
@@ -567,15 +569,20 @@ public class Command {
 				// Ignore.
 			}
 		}
+		final long initialTime = System.currentTimeMillis();
 		if (action != null) {
 			if (action.equals("postback")) {
 				final Handler handler = new Handler();
 				handler.postDelayed(new Runnable() {
 					@Override
 					public void run() {
-						processor.postback(postback);
+						if (initialTime < timerClear) {
+							processor.postback(postback);
+						}
 					}
 				}, time);
+			} else if (action.equals("clear")) {
+				timerClear = System.currentTimeMillis();
 			}
 		}
 	}

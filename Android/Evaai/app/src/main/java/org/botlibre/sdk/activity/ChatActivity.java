@@ -67,6 +67,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -133,6 +134,8 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 
 	protected Menu menu;
 
+	protected ProgressDialog progressDialog;
+
 	public MediaPlayer backgroundAudioPlayer;
 
 	public void superOnCreate(Bundle savedInstanceState) {
@@ -153,6 +156,11 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 			return;
 		}
 		setContentView(R.layout.activity_chat);
+
+		progressDialog = new ProgressDialog(this);
+		progressDialog.setTitle("");
+		progressDialog.setMessage("Loading...");
+		progressDialog.show();
 		
 		webAppInterface = new WebAppInterface(this);
 			
@@ -510,7 +518,7 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 
 	public void sendFile(MediaConfig media) {
 		try {
-			String message = "file: " + media.name + " : " + media.type + " : http://"
+			String message = "https://"
 					+ MainActivity.connection.getCredentials().host + MainActivity.connection.getCredentials().app + "/" + media.file;
 			EditText view = (EditText) findViewById(R.id.messageText);
 			view.setText(message);
@@ -1033,10 +1041,12 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 				customizeAvatar();
 			} else if (ChatMenuActivity.action.equals("noAds")) {
 				noAds();
-			} else if (ChatMenuActivity.action.equals("command")) {
+			}
+			if (ChatMenuActivity.command != null) {
 				postback(ChatMenuActivity.command);
 			}
 			ChatMenuActivity.action = null;
+			ChatMenuActivity.command = null;
 
 		}
 	}
@@ -1130,6 +1140,8 @@ public class ChatActivity extends AbstractChatActivity implements CommandProcess
 	}
 
 	public void response(final ChatResponse response) {
+		progressDialog.dismiss();
+
 		if (speechPlayer != null|| tts != null) {
 			try {
 				if (tts != null) {

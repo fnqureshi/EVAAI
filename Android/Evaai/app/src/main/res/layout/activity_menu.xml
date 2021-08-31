@@ -138,6 +138,7 @@
 			<LinearLayout
 				style="@style/menuLayout">
 				<LinearLayout
+					android:id="@+id/speakButton"
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
@@ -152,6 +153,7 @@
 			<LinearLayout
 				style="@style/menuLayout">
 				<LinearLayout
+					android:id="@+id/deviceVoiceButton"
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
@@ -188,6 +190,7 @@
 			<LinearLayout
 				style="@style/menuLayout">
 				<LinearLayout
+					android:id="@+id/handsFreeButton"
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
@@ -288,6 +291,7 @@
 			<LinearLayout
 				style="@style/menuLayout">
 				<LinearLayout
+					android:id="@+id/hdButton"
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
@@ -302,6 +306,7 @@
 			<LinearLayout
 				style="@style/menuLayout">
 				<LinearLayout
+					android:id="@+id/webmButton"
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"
@@ -316,6 +321,7 @@
 			<LinearLayout
 				style="@style/menuLayout">
 				<LinearLayout
+					android:id="@+id/videoButton"
 					style="@style/menuLayout2">
 					<ImageView
 						style="@style/menuIcon"

@@ -18,7 +18,11 @@
 
 package org.botlibre.sdk.activity;
 
+import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import org.botlibre.sdk.activity.actions.HttpGetInstancesAction;
@@ -47,11 +51,36 @@ public class ChatMenuActivity extends LibreActivity {
 			return;
 		}
 		setContentView(R.layout.activity_menu);
+		int colorInt = Color.parseColor("#B190FC");
+		ColorStateList color = ColorStateList.valueOf(colorInt);
+		if (MainActivity.sound) {
+			findViewById(R.id.speakButton).setBackgroundTintList(color);
+		}
+		if (MainActivity.deviceVoice) {
+			findViewById(R.id.deviceVoiceButton).setBackgroundTintList(color);
+		}
+		if (MainActivity.webm) {
+			findViewById(R.id.webmButton).setBackgroundTintList(color);
+		}
+		if (MainActivity.disableVideo) {
+			findViewById(R.id.videoButton).setBackgroundTintList(color);
+		}
+		if (MainActivity.handsFreeSpeech) {
+			findViewById(R.id.handsFreeButton).setBackgroundTintList(color);
+		}
+		if (MainActivity.hd) {
+			findViewById(R.id.hdButton).setBackgroundTintList(color);
+		}
 		action = null;
 	}
 
 	public void speak(View view) {
 		action = "speak";
+		if (MainActivity.sound) {
+			command = "menu disable speech";
+		} else {
+			command = "menu enable speech";
+		}
 		finish();
 	}
 
@@ -62,11 +91,21 @@ public class ChatMenuActivity extends LibreActivity {
 
 	public void deviceVoice(View view) {
 		action = "deviceVoice";
+		if (MainActivity.deviceVoice) {
+			command = "menu disable device voice";
+		} else {
+			command = "menu enable device voice";
+		}
 		finish();
 	}
 
 	public void handsFree(View view) {
 		action = "handsFree";
+		if (MainActivity.handsFreeSpeech) {
+			command = "menu disable hands free";
+		} else {
+			command = "menu enable hands free";
+		}
 		finish();
 	}
 
@@ -87,26 +126,43 @@ public class ChatMenuActivity extends LibreActivity {
 
 	public void customizeAvatar(View view) {
 		action = "customizeAvatar";
+		command = "menu customize avatar";
 		finish();
 	}
 
 	public void noAds(View view) {
 		action = "noAds";
+		command = "menu no ads";
 		finish();
 	}
 
 	public void hdVideo(View view) {
 		action = "hdVideo";
+		if (MainActivity.hd) {
+			command = "menu disable hd";
+		} else {
+			command = "menu enable hd";
+		}
 		finish();
 	}
 
 	public void webmVideo(View view) {
 		action = "webmVideo";
+		if (MainActivity.webm) {
+			command = "menu disable webm";
+		} else {
+			command = "menu enable webm";
+		}
 		finish();
 	}
 
 	public void disableVideo(View view) {
 		action = "disableVideo";
+		if (MainActivity.disableVideo) {
+			command = "menu enable video";
+		} else {
+			command = "menu disable video";
+		}
 		finish();
 	}
 
